@@ -1,0 +1,16 @@
+#bgIMG {
+    width: 100vw;
+    height: auto;
+    margin: 0px;
+    position: relative;
+    top: -10px;
+    left: -10px;
+}
+.body {
+    background-color: rgb(175, 205, 115);
+    color: coral;
+    position: absolute;
+    top: 50px;
+    left: 100px;
+
+}
