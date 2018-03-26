@@ -101,7 +101,7 @@ function endOfGame(){
     $("#possibleAnswer2").html("but you got " + incorrectAnswers + " questions wrong...");
     $("#possibleAnswer3").html("You ran out of time " + youRanOutOfTime + " times.");
     $("#possibleAnswer4").html("Want to hop back to the beginning of the game?");
-    $("#restart").html("Click here to play again!");
+    $("#restart").html(">>>Click here!<<<");
     $("#restart").on("click", function(){
         currentQuestionPosition = 0;
         correctAnswers = 0;
@@ -114,7 +114,7 @@ function outOfTime() {
     youRanOutOfTime++;
     stopwatch.stop();
     $("#question").html("Oh no! You ran out of time!");
-    $("#possibleAnswer1").html("The correct answer was");
+    $("#possibleAnswer1").html("The correct answer was:");
     $("#possibleAnswer2").html("");
     $("#possibleAnswer3").html(allQuestions[currentQuestionPosition].answer);
     $("#possibleAnswer4").html("");
@@ -141,7 +141,7 @@ function wrongAnswer(){
     $("#question").html("Rut roh you're WRONG :(");
     $("#possibleAnswer1").html("The correct answer was...");
     $("#possibleAnswer2").html(allQuestions[currentQuestionPosition].answer);
-    $("#possibleAnswer3").html("...");
+    $("#possibleAnswer3").html("");
     $("#possibleAnswer4").html("Get ready to hop onto the next question...");
     setTimeout(displayQuestion, 4000);
 }
@@ -151,7 +151,7 @@ function rightAnswer(){
     $("#question").html("CORRECT!");
     $("#possibleAnswer1").html("Good job! Go you! It's true!");
     $("#possibleAnswer2").html(allQuestions[currentQuestionPosition].answer);
-    $("#possibleAnswer3").html("...");
+    $("#possibleAnswer3").html("");
     $("#possibleAnswer4").html("Get ready to hop onto the next question...");
     setTimeout(displayQuestion, 4000);
 }

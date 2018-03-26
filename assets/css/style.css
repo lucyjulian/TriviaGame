@@ -1,25 +1,30 @@
 #bgIMG {
     width: 100vw;
     height: auto;
-    margin: 0px;
+    
     position: relative;
     top: -10px;
     left: -10px;
 }
 .body {
-    background-color:#e7df31;
+    background-color:#fcf95d;
     color: coral;
-    border-color: #d78148;
+    border-color: #441106;
     border-style: solid;
     border-width: 5px;
     position: absolute;
-    top: 50px;
+    top: 30px;
     left: 100px;
-    width: 300px;
+    width: 400px;
+    height: 550px;
 }
 h1 {
     text-align: center;
-    color: #76b421;
+    color: #7cc224;
+    font-size: 48px;
+    letter-spacing: 10px;
+    font-weight: bold;
+    font-style: italic;
 }
 #timeRemaining {
     padding-bottom: 20px;
@@ -27,7 +32,7 @@ h1 {
     color: #ea7f7a;
 }
 #question {
-    color: #76b421;
+    color: #99871d;
     font-weight: bold;
     padding: 20px;
     font-size: 24px;
