@@ -7,10 +7,34 @@
     left: -10px;
 }
 .body {
-    background-color: rgb(175, 205, 115);
+    background-color:#e7df31;
     color: coral;
+    border-color: #d78148;
+    border-style: solid;
+    border-width: 5px;
     position: absolute;
     top: 50px;
     left: 100px;
-
+    width: 300px;
+}
+h1 {
+    text-align: center;
+    color: #76b421;
+}
+#timeRemaining {
+    padding-bottom: 20px;
+    text-align: center;
+    color: #ea7f7a;
+}
+#question {
+    color: #76b421;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+#posAnswers, #possibleAnswer1, #possibleAnswer2, #possibleAnswer3, #possibleAnswer4 {
+    padding: 20px;
+    color: #8593d3;
+    text-align: center;
 }

@@ -97,11 +97,12 @@ var youRanOutOfTime = 0;
 //pick a question and display the question and possible answers
 function endOfGame(){
     $("#question").html("Hey! You made it to the end of the game...");
-    $("#possibleAnswer1").html("You answered this many questions right..." + correctAnswers);
-    $("#possibleAnswer2").html("and this many questions wrong..." + incorrectAnswers);
-    $("#possibleAnswer3").html("you ran out of time this many times..." + youRanOutOfTime);
-    $("#possibleAnswer4").html("click here to hop back to the beginning of the game!");
-    $("#possibleAnswer4").on("click", function(){
+    $("#possibleAnswer1").html("You answered " + correctAnswers + " questions right!");
+    $("#possibleAnswer2").html("but you got " + incorrectAnswers + " questions wrong...");
+    $("#possibleAnswer3").html("You ran out of time " + youRanOutOfTime + " times.");
+    $("#possibleAnswer4").html("Want to hop back to the beginning of the game?");
+    $("#restart").html("Click here to play again!");
+    $("#restart").on("click", function(){
         currentQuestionPosition = 0;
         correctAnswers = 0;
         incorrectAnswers = 0;
@@ -112,11 +113,11 @@ function endOfGame(){
 function outOfTime() {
     youRanOutOfTime++;
     stopwatch.stop();
-    $("#question").html("OH no! You ran out of time!");
-    $("#possibleAnswer1").html("The correct answer");
-    $("#possibleAnswer2").html("was");
+    $("#question").html("Oh no! You ran out of time!");
+    $("#possibleAnswer1").html("The correct answer was");
+    $("#possibleAnswer2").html("");
     $("#possibleAnswer3").html(allQuestions[currentQuestionPosition].answer);
-    $("#possibleAnswer4").html("!!!!!!!!");
+    $("#possibleAnswer4").html("");
     setTimeout(displayQuestion, 4000);
 }
 function displayQuestion(){
@@ -129,6 +130,7 @@ function displayQuestion(){
         $("#possibleAnswer2").html(allQuestions[currentQuestionPosition].choices[1]);
         $("#possibleAnswer3").html(allQuestions[currentQuestionPosition].choices[2]);
         $("#possibleAnswer4").html(allQuestions[currentQuestionPosition].choices[3]);
+        $("#restart").html("");
     } else {
         endOfGame();
     }
@@ -136,57 +138,49 @@ function displayQuestion(){
 function wrongAnswer(){
     stopwatch.stop();
     incorrectAnswers++;
-    $("#question").html("you got it WRONG");
-    $("#possibleAnswer1").html("The correct answer");
-    $("#possibleAnswer2").html("was");
-    $("#possibleAnswer3").html(allQuestions[currentQuestionPosition].answer);
-    $("#possibleAnswer4").html("!!!!!!!!");
+    $("#question").html("Rut roh you're WRONG :(");
+    $("#possibleAnswer1").html("The correct answer was...");
+    $("#possibleAnswer2").html(allQuestions[currentQuestionPosition].answer);
+    $("#possibleAnswer3").html("...");
+    $("#possibleAnswer4").html("Get ready to hop onto the next question...");
     setTimeout(displayQuestion, 4000);
 }
 function rightAnswer(){
     stopwatch.stop();
     correctAnswers++;
-    $("#question").html("you got it RIGHT");
-    $("#possibleAnswer1").html("Good job!");
-    $("#possibleAnswer2").html("Go you! It's true:");
-    $("#possibleAnswer3").html(allQuestions[currentQuestionPosition].answer);
-    $("#possibleAnswer4").html("Get ready to hop onto the next question!!!!!!!!");
+    $("#question").html("CORRECT!");
+    $("#possibleAnswer1").html("Good job! Go you! It's true!");
+    $("#possibleAnswer2").html(allQuestions[currentQuestionPosition].answer);
+    $("#possibleAnswer3").html("...");
+    $("#possibleAnswer4").html("Get ready to hop onto the next question...");
     setTimeout(displayQuestion, 4000);
 }
 function checkAnswer(){
     $("#possibleAnswer1").on("click", function(){
         if ((allQuestions[currentQuestionPosition].choices[0])===(allQuestions[currentQuestionPosition].answer)) {
-            correctAnswers++;
             rightAnswer();
         } else {
-            incorrectAnswers++;
             wrongAnswer();
         }
     });
     $("#possibleAnswer2").on("click", function(){
         if ((allQuestions[currentQuestionPosition].choices[1])===(allQuestions[currentQuestionPosition].answer)) {
-            correctAnswers++;
             rightAnswer();
         } else {
-            incorrectAnswers++;
             wrongAnswer();
         }
     });
     $("#possibleAnswer3").on("click", function(){
         if ((allQuestions[currentQuestionPosition].choices[2])===(allQuestions[currentQuestionPosition].answer)) {
-            correctAnswers++;
             rightAnswer();
         } else {
-            incorrectAnswers++;
             wrongAnswer();
         }
     });
     $("#possibleAnswer4").on("click", function(){
         if ((allQuestions[currentQuestionPosition].choices[3])===(allQuestions[currentQuestionPosition].answer)) {
-            correctAnswers++;
             rightAnswer();
         } else {
-            incorrectAnswers++;
             wrongAnswer();
         }
     });
